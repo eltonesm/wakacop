@@ -6,7 +6,8 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-public class SessaoAberturaResponse {
+public class
+SessaoAberturaResponse {
     private UUID id;
 
     public SessaoAberturaResponse(SessaoVotacao sessaoVotacao) {
