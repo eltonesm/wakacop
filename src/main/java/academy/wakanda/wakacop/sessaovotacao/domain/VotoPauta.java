@@ -1,6 +1,5 @@
 package academy.wakanda.wakacop.sessaovotacao.domain;
 
-import academy.wakanda.wakacop.pauta.domain.Pauta;
 import academy.wakanda.wakacop.sessaovotacao.application.api.VotoRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -20,10 +19,11 @@ public class VotoPauta {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
     private UUID id;
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sessao_votacao_id")
     private SessaoVotacao sessaoVotacao;
     private String cpfAssociado;
+    @Enumerated(EnumType.STRING)
     private OpcaoVoto opcaoVoto;
     private LocalDateTime momentoVoto;
 
@@ -32,5 +32,9 @@ public class VotoPauta {
         this.cpfAssociado = votoRequest.getCpfAssociado();
         this.opcaoVoto = votoRequest.getOpcao();
         this.momentoVoto = LocalDateTime.now();
+    }
+
+    public UUID getIdSessao() {
+        return this.sessaoVotacao.getId();
     }
 }

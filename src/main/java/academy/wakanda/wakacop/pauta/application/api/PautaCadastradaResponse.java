@@ -7,9 +7,9 @@ import java.util.UUID;
 
 @Value
 public class PautaCadastradaResponse {
-    private UUID id;
+    private UUID idPauta;
 
     public PautaCadastradaResponse(Pauta pauta) {
-        this.id = pauta.getId();
+        this.idPauta = pauta.getId();
     }
 }

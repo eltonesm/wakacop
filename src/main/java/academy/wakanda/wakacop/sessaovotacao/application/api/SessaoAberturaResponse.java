@@ -8,9 +8,9 @@ import java.util.UUID;
 @Value
 public class
 SessaoAberturaResponse {
-    private UUID id;
+    private UUID idSessao;
 
     public SessaoAberturaResponse(SessaoVotacao sessaoVotacao) {
-        this.id = sessaoVotacao.getId();
+        this.idSessao = sessaoVotacao.getId();
     }
 }
