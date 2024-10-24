@@ -1,6 +1,8 @@
 package academy.wakanda.wakacop.sessaovotacao.application.api;
 
 import academy.wakanda.wakacop.sessaovotacao.application.service.SessaoVotacaoService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

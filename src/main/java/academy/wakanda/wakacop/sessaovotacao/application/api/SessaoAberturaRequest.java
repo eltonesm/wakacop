@@ -12,7 +12,7 @@ public class SessaoAberturaRequest {
     private UUID idPauta;
     private Integer tempoDuracao;
 
-    public Optional<Integer> getTempoDuracao(){
+    public Optional<Integer> getTempoDuracao() {
         return Optional.ofNullable(this.tempoDuracao);
     }
 }
