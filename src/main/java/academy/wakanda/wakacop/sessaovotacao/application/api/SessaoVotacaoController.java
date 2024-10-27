@@ -1,8 +1,6 @@
 package academy.wakanda.wakacop.sessaovotacao.application.api;
 
 import academy.wakanda.wakacop.sessaovotacao.application.service.SessaoVotacaoService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,10 +23,10 @@ public class SessaoVotacaoController implements SessaoVotacaoAPI {
 
     @Override
     public VotoResponse recebeVoto(UUID idSessao, VotoRequest novoVoto) {
-        log.info("[Start]SessaoVotacaoController - recebeVoto");
-        log.info("[idSessao] {}", idSessao);
+        log.debug("[Start]SessaoVotacaoController - recebeVoto");
+        log.debug("[idSessao] {}", idSessao);
         VotoResponse votoResponse = sessaoVotacaoService.recebeVoto(idSessao, novoVoto);
-        log.info("[Finish]SessaoVotacaoController - recebeVoto");
+        log.debug("[Finish]SessaoVotacaoController - recebeVoto");
         return votoResponse;
     }
 
