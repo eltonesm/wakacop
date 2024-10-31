@@ -24,10 +24,10 @@ services:
   postgres:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5433:5433"
     environment:
-      - POSTGRES_USER=eltonesm
-      - POSTGRES_PASSWORD=@Esmy1458
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=esmy1458
       - POSTGRES_DB=postgres
     volumes:
       - ./database:/docker-entrypoint-initdb.d/
