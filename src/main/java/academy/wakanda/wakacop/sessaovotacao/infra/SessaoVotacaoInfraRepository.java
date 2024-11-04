@@ -3,11 +3,13 @@ package academy.wakanda.wakacop.sessaovotacao.infra;
 import academy.wakanda.wakacop.handler.APIException;
 import academy.wakanda.wakacop.sessaovotacao.application.repository.SessaoVotacaoRepository;
 import academy.wakanda.wakacop.sessaovotacao.domain.SessaoVotacao;
+import academy.wakanda.wakacop.sessaovotacao.domain.StatusSessaoVotacao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -31,5 +33,13 @@ public class SessaoVotacaoInfraRepository implements SessaoVotacaoRepository {
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Sessão não encontrada!"));
         log.info("[Finish]SessaoVotacaoInfraRepository - buscaPorId");
         return sessao;
+    }
+
+    @Override
+    public List<SessaoVotacao> buscaAbertas() {
+        log.info("[Start]SessaoVotacaoInfraRepository - buscaAbertas");
+        List<SessaoVotacao> sessoes = sessaoVotacaoSpringDataJPARepository.findByStatus(StatusSessaoVotacao.ABERTA);
+        log.info("[Finish]SessaoVotacaoInfraRepository - buscaAbertas");
+        return sessoes;
     }
 }
