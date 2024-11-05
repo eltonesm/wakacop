@@ -6,10 +6,7 @@ import academy.wakanda.wakacop.sessaovotacao.application.api.ResultadoSessaoResp
 import academy.wakanda.wakacop.sessaovotacao.application.api.SessaoAberturaRequest;
 import academy.wakanda.wakacop.sessaovotacao.application.api.VotoRequest;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -22,6 +19,8 @@ import java.util.UUID;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class SessaoVotacao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -110,5 +109,4 @@ public class SessaoVotacao {
                 .filter(voto -> voto.opcaoIgual(opcao))
                 .count();
     }
-
 }
